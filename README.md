@@ -43,17 +43,19 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 
 ## Dot Notation Syntax
 
-Dot notation is RECOMMENDED over bracket notation for getting and setting properties.
+Dot notation is RECOMMENDED over bracket notation for setting properties.
+
+Keep in mind that dot notation is syntactical sugar that was added in Objective-C 2.0. In my opinion, it has been 
+misused too often, especially in the case of what are [Class Factory Methods.](https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/ClassFactoryMethods/ClassFactoryMethods.html) Whenever possible, do not mix brackets and dot notation.
 
 **For example:**
 ```objc
-view.backgroundColor = UIColor.orangeColor;
-UIApplication.sharedApplication.delegate;
+self.view.backgroundColor = [UIColor orangeColor];
 ```
 
 **Not:**
 ```objc
-[view setBackgroundColor:[UIColor orangeColor]];
+self.view.backgroundColor = UIColor.orangeColor;
 [UIApplication sharedApplication].delegate;
 ```
 
